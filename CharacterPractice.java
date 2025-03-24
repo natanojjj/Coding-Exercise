@@ -18,6 +18,7 @@ public class CharacterPractice{
         System.out.println("Word Count: " + wordCountResult);
         int charCountResult = charCount(text);
         System.out.println("Character Count: " + charCountResult);
+        charFreq(text);
     }
 
     public static int wordCount(String text){
@@ -39,5 +40,24 @@ public class CharacterPractice{
         for(int i = 0; i < text.length(); i++)
             count++;
         return count;
+    }
+
+    public static void charFreq(String text){ 
+        text = text.trim();
+        text = text.toLowerCase(); 
+        if(text.isEmpty())
+            return;
+        HashMap <Character, Integer> charMap = new HashMap<>();
+        for(int i = 0; i < text.length(); i++){
+            char c = text.charAt(i);
+            if(Character.isLetter(c)){ //check for spaces
+                if(charMap.containsKey(c)) //check if key already exists
+                    charMap.put(c, charMap.get(c) + 1); //iterate once (if alr. exists)
+                else
+                    charMap.put(c, 1); //case where the letter is the first of it's kind
+            }
+        }
+        for(Character key : charMap.keySet())
+            System.out.println(key + " : " + charMap.get(key));
     }
 }
