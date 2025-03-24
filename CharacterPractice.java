@@ -19,7 +19,6 @@ public class CharacterPractice{
 
     }
 
-
     public static int wordCount(String text){
         text = text.trim(); // get rid of unneccessary frontward and backward white space
         if(text.isEmpty()) //if no text
