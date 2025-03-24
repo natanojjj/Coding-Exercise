@@ -20,8 +20,13 @@ public class CharacterPractice{
         int charCountResult = charCount(text);
         System.out.println("Character Count: " + charCountResult);
 
-        HashMap <Character, Integer> charMap = charFreq(text);
+        HashMap <Character, Integer> charMap = charFreq(text); //just like we initialize results into data types, we too must initialize hashMaps
         printCharFreq(charMap);
+        char commonLetter = mostCommonLetter(charMap);
+        System.out.println("Most common letter: " + commonLetter);
+
+        String reverse = stringReverse(text);
+        System.out.println(reverse);
     }
 
     public static int wordCount(String text){
@@ -62,5 +67,26 @@ public class CharacterPractice{
     public static void printCharFreq(HashMap<Character, Integer> charMap){
         for(Character key : charMap.keySet()) 
             System.out.println(key + " : " + charMap.get(key));
+    }
+    public static char mostCommonLetter(HashMap<Character, Integer> charMap){
+        int max = 0;
+        char commonLetter = '\0'; //default to null
+        for(Character key : charMap.keySet()){ //iterate through entire set
+            if(charMap.get(key) > max){ //if value of key is greater than greatest value
+                max = charMap.get(key); //value becomes the "most frequent"
+                commonLetter = key; //most common letter is the key (letter)
+            }
+        }
+
+        return commonLetter;
+    }
+
+    public static String stringReverse(String text){
+        String reverse = "";
+        for(int i = text.length() - 1; i >= 0; i--){
+            char c = text.charAt(i);
+            reverse += c;
+        }
+        return reverse;
     }
 }
