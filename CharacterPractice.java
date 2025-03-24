@@ -16,9 +16,12 @@ public class CharacterPractice{
         String text = "The grass withers, the flower fades, but the word of our God will stand forever.";
         int wordCountResult = wordCount(text);
         System.out.println("Word Count: " + wordCountResult);
+
         int charCountResult = charCount(text);
         System.out.println("Character Count: " + charCountResult);
-        charFreq(text);
+
+        HashMap <Character, Integer> charMap = charFreq(text);
+        printCharFreq(charMap);
     }
 
     public static int wordCount(String text){
@@ -42,11 +45,8 @@ public class CharacterPractice{
         return count;
     }
 
-    public static void charFreq(String text){ 
-        text = text.trim();
-        text = text.toLowerCase(); 
-        if(text.isEmpty())
-            return;
+    public static HashMap<Character, Integer> charFreq(String text){ //make a hashmap method for storing key/values
+        text = text.trim().toLowerCase();
         HashMap <Character, Integer> charMap = new HashMap<>();
         for(int i = 0; i < text.length(); i++){
             char c = text.charAt(i);
@@ -57,7 +57,10 @@ public class CharacterPractice{
                     charMap.put(c, 1); //case where the letter is the first of it's kind
             }
         }
-        for(Character key : charMap.keySet())
+        return charMap;
+    }
+    public static void printCharFreq(HashMap<Character, Integer> charMap){
+        for(Character key : charMap.keySet()) 
             System.out.println(key + " : " + charMap.get(key));
     }
 }
