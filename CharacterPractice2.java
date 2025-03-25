@@ -42,6 +42,13 @@ public class CharacterPractice2{
         String text8 = "R2-D2 is a droid!";
         String fixed3 = text8.replaceAll("[^a-zA-Z]", "");
         System.out.println(fixed3);
+
+        //Exercise 4:Combine split() and replaceAll()
+        String text9 = "apple, banana; orange|grape";
+        String[] fruits2 = text9.replaceAll("[^a-zA-Z]"," ").split("\\s+");
+        //for context \\s+ = trim() (excess white space)
+        //furthermore \\s* = trim() but will split every single letter
+        System.out.println(Arrays.toString(fruits2));
     }
     public static int sentenceCount(String text){
         int count = 0;
