@@ -25,7 +25,7 @@ public class CharacterPractice{
         char commonLetter = mostCommonLetter(charMap);
         System.out.println("Most common letter: " + commonLetter);
 
-        String reverse = stringReverse(text);
+        String reverse = wordReverse(text);
         System.out.println(reverse);
     }
 
@@ -37,7 +37,7 @@ public class CharacterPractice{
         for(int i = 0; i < text.length(); i++){ //iterate through the entire string
             if(text.charAt(i) == ' ') //assuming a space signifies a word
                 count++;
-        }
+        } 
         return count;
     }
 
@@ -88,5 +88,15 @@ public class CharacterPractice{
             reverse += c;
         }
         return reverse;
+    }
+
+    public static String wordReverse(String text){
+        String reverse = "";
+        for(int i = 0; i < string.length(); i++){
+            char c = text.charAt(i);
+            if (c == " "){
+                
+            }
+        }
     }
 }
