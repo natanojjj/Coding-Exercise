@@ -8,7 +8,7 @@ public class ArrayPractice{
         boolean[] booleanArray = {true, false, true};
         char[] charArray = {'a','b','c'};
 
-        System.out.println(getTwoNumbers());
+        System.out.println();
     
     }
     //Section 2: Array Return Types
@@ -21,4 +21,17 @@ public class ArrayPractice{
     public static double[] getTwoDoubles(){
         return new double[] {1.5, 2.5};
     }
+
+    //Section 3: Array Indexing
+    public static int[] getFirstLast(int[] intArray){
+        if(intArray.length == 0)
+            return new int[] {}; //return nothing if array is empty
+        return new int[] {intArray[0], intArray[intArray.length - 1]};
+    }
+    public static char getMiddleChar(char[] charArray){
+        if(charArray.length == 0)
+            return '\0';
+        return charArray[(charArray.length - 1)/2];
+    }
+    
 }
