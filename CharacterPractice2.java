@@ -30,7 +30,18 @@ public class CharacterPractice2{
         String[] words5 = text5.split("[0-9]");
         System.out.println(Arrays.toString(words5));
 
+        //Exercise 3: replaceAll() practice
+        String text6 = "Order123 placed456";
+        String fixed1 = text6.replaceAll("[0-9]",""); //get rid of all digits
+        System.out.println(fixed1);
+
+        String text7 = "Hello World";
+        String fixed2 = text7.replaceAll("[aeiouAEIOU]","*"); //replaces all vowels with *
+        System.out.println(fixed2);
         
+        String text8 = "R2-D2 is a droid!";
+        String fixed3 = text8.replaceAll("[^a-zA-Z]", "");
+        System.out.println(fixed3);
     }
     public static int sentenceCount(String text){
         int count = 0;
