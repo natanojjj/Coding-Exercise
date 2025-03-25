@@ -25,7 +25,7 @@ public class ArrayPractice{
     //Section 3: Array Indexing
     public static int[] getFirstLast(int[] intArray){
         if(intArray.length == 0)
-            return new int[] {}; //return nothing if array is empty
+            return new int[] {}; //return empty if array is empty
         return new int[] {intArray[0], intArray[intArray.length - 1]};
     }
     public static char getMiddleChar(char[] charArray){
@@ -33,5 +33,23 @@ public class ArrayPractice{
             return '\0';
         return charArray[(charArray.length - 1)/2];
     }
-    
+
+    //Section 4: Array Manipulation
+    public static void swapFirstLast(int[] intArray){
+        int temp = intArray[0]; //set temporary to first index
+        intArray[0] = intArray[intArray.length - 1]; //set first index to last
+        intArray[intArray.length - 1] = temp; //set last to first (using temp)
+    }
+    public static int[] reverseArray(int[] intArray){
+        if(intArray.length == 0)
+            return intArray; //return original array if empty
+        int[] reverse = new int[intArray.length];
+        for(int i = 0; i < intArray.length; i++) //notice the string reverse and array reverse logic are sligtly different (dynamic vs static)
+            reverse[i] = intArray[intArray.length - 1 - i]; //last index - i (iterating down the array)
+        return reverse;
+    }
+
+
+
+
 }
