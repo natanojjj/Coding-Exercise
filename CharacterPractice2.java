@@ -23,11 +23,14 @@ public class CharacterPractice2{
 
         //Exercise 2: Further Regex Practice
         String text4 = "Hello.World!How?Are.You";
-        String[] words4 = text4.split("[.!?]");
+        String[] words4 = text4.split("[.!?]"); //spliting by punctuation points
         System.out.println(Arrays.toString(words4));
 
-        
+        String text5 = "A1B2C3D";
+        String[] words5 = text5.split("[0-9]");
+        System.out.println(Arrays.toString(words5));
 
+        
     }
     public static int sentenceCount(String text){
         int count = 0;
