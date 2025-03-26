@@ -1,5 +1,8 @@
 import java.util.HashSet;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class CharacterPractice2{
     public static void main (String[] args){
@@ -43,21 +46,31 @@ public class CharacterPractice2{
         String fixed3 = text8.replaceAll("[^a-zA-Z]", "");
         System.out.println(fixed3);
 
-        //Exercise 4:Combine split() and replaceAll()
+        //Exercise 4: Combine split() and replaceAll()
         String text9 = "apple, banana; orange|grape";
         String[] fruits2 = text9.replaceAll("[^a-zA-Z]"," ").split("\\s+");
         //for context \\s+ = trim() (excess white space)
         //furthermore \\s* = trim() but will split every single letter
         System.out.println(Arrays.toString(fruits2));
-    }
-    public static int sentenceCount(String text){
-        int count = 0;
-        for(int i = 0; i < text.length(); i++){
-            char c = text.charAt(i);
-            if(isSentence(c))
-                count++;
+
+        //Exercise 5: Real-World Problem (Extract Hashtags!)
+        String caption = "Java is #awesome! #coding #learn";
+        caption = caption.replaceAll("[^a-zA-Z#]", " "); //remove all non-characters and non-hashtags
+        String[] hashtags = caption.split("\\s+"); //remove white space and append to hashtag
+        List<String> filteredHashtags = new ArrayList<>();
+        for (String word : hashtags) { //iterate through the original hashtag array
+            if (word.startsWith("#")) {
+                filteredHashtags.add(word);
+            }
         }
-        return count;
+        System.out.println(filteredHashtags);
+    }
+
+    public static int sentenceCount(String text){
+        if (text.isEmpty())
+            return 0;
+        String[] sentence = text.split("[.!?]");
+        return sentence.length;
     }
     public static boolean isSentence(char text){
         if(text == '.' || text == '?'  || text == '!')
