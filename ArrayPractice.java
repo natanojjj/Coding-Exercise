@@ -48,8 +48,4 @@ public class ArrayPractice{
             reverse[i] = intArray[intArray.length - 1 - i]; //last index - i (iterating down the array)
         return reverse;
     }
-
-
-
-
 }
